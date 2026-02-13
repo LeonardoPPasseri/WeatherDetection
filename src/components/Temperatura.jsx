@@ -18,9 +18,9 @@ const Temperatura = ({data}) => {
 
   const [iconPath, setIconPath] = useState("");
 
-  function getWeatherIcon() {
-    const code = data.weathercode;
-    
+useEffect(() => {
+  if(!data) return;
+  const code = data.weathercode;
     switch (true) {
         case (code == 0):
           setIconPath("clear.png");
@@ -52,19 +52,15 @@ const Temperatura = ({data}) => {
             setIconPath("clouds.png");
             break;
     }
-    return iconPath;
-}
-useEffect(() => {
-  if(!data) return;
-  getWeatherIcon();
+
 },[data])
 
 
   return (
     <div className="temperatura">
-      <img className="iconeClima" src={iconPath !== "" ? `/img/${iconPath}` : "/img/clouds.png"} alt="iconeClima" />
+      <img className="iconeClima" src={iconPath !== "" ? `/img/${iconPath}` : "/img/clouds.png"} alt="" />
       <h1 className="graus" >{data?.temperature || 0}°c</h1>
-      <h2 className="cidade" >{data?.city || "Cidade não encontrada"}</h2>
+      <h2 className="cidade" >{data?.city || ". . ."}</h2>
     </div>
   );
 };

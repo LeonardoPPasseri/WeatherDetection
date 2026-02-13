@@ -78,6 +78,7 @@ const WeatherContainer = () => {
         weathercode: weathercode
     })
     setLoading(false);
+    console.log(data)
     console.log(city,temp, wind, humidity, weathercode);
   };
   if(loading) {

@@ -28,6 +28,14 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    cursor:pointer;
+}
+.btn:hover{
+    background-color: #e0e0e0;
+}
+
+.btn:active{
+    background-color: #c0c0c0;
 }
 
 .btn img{

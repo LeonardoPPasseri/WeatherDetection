@@ -64,26 +64,26 @@ const WeatherContainer = () => {
   }, [lat, log]);
 
   const montarObjetoClima = (data) => {
+    console.log(data);
     const temp = data.current_weather.temperature;
     const wind = data.current_weather.windspeed;
     const weathercode = data.current_weather.weathercode;
-
-    const humidity =
-      data.hourly.relativehumidity_2m[
-        data.hourly.time.indexOf(data.current_weather.time)
-      ];
+    const city = cidade;
+    const humidity = data.hourly.relativehumidity_2m[0];
     setWeatherData({
+        city: cidade,
         temperature: temp,
         windSpeed: wind,
         humidity: humidity,
         weathercode: weathercode
     })
-    console.log(temp, wind, humidity, weathercode);
+    console.log(city,temp, wind, humidity, weathercode);
   };
 
   return (
     <div className="App">
       <Menu nomeCidade={(res) => setCidade(res)} />
+
       <Temperatura data={weatherData} />
       <section className="info">
         <Humidity data={weatherData} />

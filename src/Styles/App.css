@@ -3,19 +3,20 @@
   text-align: center;
 }
 .App {
-  background-color: #2b667e;
+  background-image: url("../img/backgroundapp.jpg");
+  background-size: 100% 100%;
   border-radius: 8px;
   padding: 2rem;
+  width: 350px;
   height: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.info{
+.info {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
-

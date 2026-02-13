@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.input{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: black;
+    padding: 0 15px;
+}
+
+.btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius:100%;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.btn img{
+    width: 15px;
+}

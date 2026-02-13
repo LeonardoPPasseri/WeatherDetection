@@ -10,6 +10,7 @@ const WeatherContainer = () => {
   const [cidade, setCidade] = useState("");
   const [lat, setLat] = useState(null);
   const [log, setLog] = useState(null);
+  const [loading,setLoading] = useState(false);
 
   // Buscar latitude e longitude
   const fetchGeoCodingLatLong = async (cidade) => {
@@ -19,18 +20,17 @@ const WeatherContainer = () => {
 
     const response = await fetch(url);
     const data = await response.json();
-
+    
     return data;
   };
 
   // Quando cidade mudar → buscar lat/log
   useEffect(() => {
     if (!cidade) return;
-
+    setLoading(true);
     const buscarLatLog = async () => {
       try {
         const dados = await fetchGeoCodingLatLong(cidade);
-
         if (!dados.results || dados.results.length === 0) {
           alert("Cidade não encontrada");
           return;
@@ -77,13 +77,20 @@ const WeatherContainer = () => {
         humidity: humidity,
         weathercode: weathercode
     })
+    setLoading(false);
     console.log(city,temp, wind, humidity, weathercode);
   };
-
+  if(loading) {
+    return (
+      <div className="App">
+        <Menu nomeCidade={(res) => setCidade(res)} />
+        <img className="imgLoading" src="/img/sun.gif" alt="" />
+      </div>
+    )
+  }
   return (
     <div className="App">
       <Menu nomeCidade={(res) => setCidade(res)} />
-
       <Temperatura data={weatherData} />
       <section className="info">
         <Humidity data={weatherData} />

@@ -1,6 +1,6 @@
 import React, { use, useEffect,useState } from "react";
 import "../Styles/temperatura.css";
-import clouds from "/img/clouds.png";
+
 const Temperatura = ({data}) => {
 
   //const [temperature, setTemperature] = React.useState(null);
@@ -62,7 +62,7 @@ useEffect(() => {
 
   return (
     <div className="temperatura">
-      <img className="iconeClima" src={iconPath !== "" ? `/img/${iconPath}` : clouds} alt="iconeClima" />
+      <img className="iconeClima" src={iconPath !== "" ? `/img/${iconPath}` : "/img/clouds.png"} alt="iconeClima" />
       <h1 className="graus" >{data?.temperature || 0}°c</h1>
       <h2 className="cidade" >{data?.city || "Cidade não encontrada"}</h2>
     </div>
